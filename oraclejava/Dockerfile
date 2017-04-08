@@ -18,7 +18,7 @@ LABEL eu.biggis-project.build-date=$BUILD_DATE \
       eu.biggis-project.version=$ORACLEJAVA
 
 ADD repositories /etc/apk
-RUN apk add --no-cache bash gosu@testing
+RUN apk add --no-cache bash gosu@testing tzdata
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 

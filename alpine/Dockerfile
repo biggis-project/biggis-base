@@ -18,7 +18,7 @@ LABEL eu.biggis-project.build-date=$BUILD_DATE \
       eu.biggis-project.version=$ALPINE_VERSION
 
 ADD repositories /etc/apk/
-RUN apk add --no-cache gosu@testing && \
+RUN apk add --no-cache gosu@testing tzdata && \
     mkdir /storage /opt
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
