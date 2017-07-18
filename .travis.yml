@@ -7,6 +7,7 @@ env:
   global:
     - BASE=biggis/base:alpine-3.4
     - BASE_JRE=biggis/base:java8-jre-alpine
+    - BASE_JDK=biggis/base:java8-jdk-alpine
     - BASE_ORACLEJAVA=biggis/base:oraclejava8-jre
 
 install:
@@ -17,6 +18,7 @@ script:
   #build the images
   - docker build --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` --build-arg VCS_REF=`git rev-parse --short HEAD` -t $BASE alpine
   - docker build --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` --build-arg VCS_REF=`git rev-parse --short HEAD` -t $BASE_JRE java8-jre
+  - docker build --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` --build-arg VCS_REF=`git rev-parse --short HEAD` -t $BASE_JDK java8-jdk
   - docker build --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` --build-arg VCS_REF=`git rev-parse --short HEAD` -t $BASE_ORACLEJAVA oraclejava
 
 after_success:
@@ -24,4 +26,5 @@ after_success:
   #push the image to dockerhub
   - docker push $BASE
   - docker push $BASE_JRE
+  - docker push $BASE_JDK
   - docker push $BASE_ORACLEJAVA
