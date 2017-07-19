@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM anapsix/alpine-java:8_jdk
 
 MAINTAINER wipatrick
 
@@ -22,7 +22,7 @@ RUN apk add --no-cache bash gosu@testing tzdata
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
-RUN mkdir /storage /opt
+RUN mkdir /data /opt
 
 WORKDIR /home
 
