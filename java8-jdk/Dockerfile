@@ -22,7 +22,7 @@ RUN apk add --no-cache bash gosu@testing tzdata
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
-RUN mkdir /data /opt
+RUN mkdir /data
 
 WORKDIR /home
 
